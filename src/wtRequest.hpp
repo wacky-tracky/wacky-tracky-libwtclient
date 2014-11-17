@@ -1,11 +1,16 @@
+#ifndef __WT_REQUEST_H__
+#define __WT_REQUEST_H__
+
 #include <iostream>
 
-#include "wtResponse.hpp"
+class wtResponse;
+class wtSession;
 
 class wtRequest {
 	public:
 		wtRequest(wtSession* session, std::string method);
 		void addArgumentInt(std::string name, int value);
+		void addArgumentString(std::string key, std::string value);
 		wtResponse* response();
 		wtRequest* submit();
 		wtResponse* go();
@@ -15,6 +20,9 @@ class wtRequest {
 
 		std::string buildUrl();
 		std::string method;
+
 };
 
-int connIndex = 0;
+#include "wtResponse.hpp"
+
+#endif

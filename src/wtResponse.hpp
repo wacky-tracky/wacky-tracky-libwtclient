@@ -1,3 +1,6 @@
+#ifndef __WT_RESPONSE_H__
+#define __WT_RESPONSE_H__
+
 #include "wtSession.hpp"
 
 #include <iostream>
@@ -11,3 +14,4 @@ class wtResponse {
 		wtSession* session;
 		int connIndex; 
 };
+#endif

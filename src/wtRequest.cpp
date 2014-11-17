@@ -1,6 +1,12 @@
 #include "wtRequest.hpp"
 
+int connIndex = 0;
+
 void wtRequest::addArgumentInt(std::string name, int value) {
+
+}
+
+void wtRequest::addArgumentString(std::string key, std::string value) {
 
 }
 
