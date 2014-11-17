@@ -9,6 +9,7 @@ class wtSession;
 class wtRequest {
 	public:
 		wtRequest(wtSession* session, std::string method);
+		~wtRequest();
 		void addArgumentInt(std::string name, int value);
 		void addArgumentString(std::string key, std::string value);
 		wtResponse* response();
