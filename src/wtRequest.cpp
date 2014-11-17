@@ -39,6 +39,12 @@ wtResponse* wtRequest::go() {
 wtRequest::wtRequest(wtSession* session, std::string method) {
 	this->session = session;
 	this->method = method;
+	this->resp = nullptr;
+}
+
+wtRequest::~wtRequest() {
+	if(!this->resp)
+		delete this->resp;
 }
 
 std::string wtRequest::buildUrl() {
