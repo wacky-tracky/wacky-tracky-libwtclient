@@ -1,5 +1,5 @@
 #include "wtSession.hpp"
 
-std::string getHost() {
+std::string wtSession::getHost() {
 	return "hosted.wacky-tracky.com";
 }

@@ -1,1 +1,4 @@
-char const* greeting();
+#include <iostream>
+
+std::string getGreeting();
+void printGreeting();
