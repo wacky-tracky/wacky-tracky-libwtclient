@@ -9,6 +9,30 @@ std::string wtResponse::connName() {
 	return ss.str();
 }
 
+std::string wtResponse::getContent() {
+	return std::string(this->responseData.memory);
+}
+
+Json::Value wtResponse::getContentAsJson() {
+	Json::Value root;
+	Json::Reader reader;
+
+	bool parsingSuccessful = reader.parse(this->getContent(), root, false);
+
+	if (!parsingSuccessful) {
+		std::cout << "parse fail" << std::endl;
+	}
+
+
+	return root;
+}
+
+std::string wtResponse::getContentAsPrettyJson() {
+	Json::Value root = getContentAsJson();
+
+	return Json::StyledWriter().write(root);
+}
+
 void wtResponse::perform() {
 	this->res = curl_easy_perform(curl);
 

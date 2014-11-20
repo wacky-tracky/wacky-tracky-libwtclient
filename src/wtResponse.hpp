@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <curl/curl.h>
+#include <jsoncpp/json/json.h>
 
 #include "wtSession.hpp"
 
@@ -14,7 +15,9 @@ struct responseData_t {
 class wtResponse {
 	public:
 		wtResponse(std::string url, wtSession* session, int connIndex);
-
+		std::string getContent();
+		Json::Value getContentAsJson();
+		std::string getContentAsPrettyJson();
 	private:
 		std::string connName();
 		void perform();
