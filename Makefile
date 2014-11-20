@@ -1,6 +1,6 @@
 default:
 	mkdir -p bin
-	g++ -Wall -pedantic src/* -o bin/libwtclient.so -shared -fPIC -std=c++11
+	g++ -Wall -pedantic src/* -o bin/libwtclient.so -shared -fPIC -std=c++11 -lcurl
 
 	g++ -Wall -pedantic -std=c++11 -Isrc -Lbin -lwtclient test/test_greeting.cpp -o bin/test_greeting.elf 
 	g++ -Wall -pedantic -std=c++11 -Isrc -Lbin -lwtclient test/test_authenticate.cpp -o bin/test_authenticate.elf 

@@ -2,12 +2,16 @@
 
 int connIndex = 0;
 
-void wtRequest::addArgumentInt(std::string name, int value) {
+int wtRequest::getPort() {
+	return 8082;
+}
 
+void wtRequest::addArgumentInt(std::string key, int value) {
+	this->arguments[key] = "" + value;
 }
 
 void wtRequest::addArgumentString(std::string key, std::string value) {
-
+	this->arguments[key] = value;
 }
 
 wtResponse* wtRequest::response() {
@@ -27,11 +31,11 @@ wtResponse* wtRequest::go() {
 
 	std::string url = this->buildUrl();
 
-	std::cout << "httpconn " << connIndex << " req: " << url << std::endl;
+	std::cout << "conn " << connIndex << " req: " << url << std::endl;
 
 	this->resp = new wtResponse(url, session, connIndex); 
 
-	std::cout << "httpconn " << connIndex << " res: ???" << std::endl;
+	std::cout << "conn " << connIndex << " res: ???" << std::endl;
 
 	return this->resp;
 }
@@ -48,5 +52,21 @@ wtRequest::~wtRequest() {
 }
 
 std::string wtRequest::buildUrl() {
-	return "http://" + this->session->getHost() + ":80/" + method;
+	std::string url = "http://" + this->session->getHost() + ":8082/" + method;
+
+	int argumentIndex = 0;
+
+	for (std::map<std::string, std::string>::iterator it = this->arguments.begin(); it != this->arguments.end(); ++it) {
+		if (argumentIndex == 0) {
+			url += "?";
+		} else {
+			url += "&";
+		}
+
+		argumentIndex++;
+
+		url += it->first + "=" + it->second;
+	}
+
+	return url;
 }

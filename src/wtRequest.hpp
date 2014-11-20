@@ -2,6 +2,7 @@
 #define __WT_REQUEST_H__
 
 #include <iostream>
+#include <map>
 
 class wtResponse;
 class wtSession;
@@ -15,6 +16,7 @@ class wtRequest {
 		wtResponse* response();
 		wtRequest* submit();
 		wtResponse* go();
+		int getPort();
 	private:
 		wtSession* session;
 		wtResponse* resp;
@@ -22,6 +24,7 @@ class wtRequest {
 		std::string buildUrl();
 		std::string method;
 
+		std::map<std::string, std::string> arguments;
 };
 
 #include "wtResponse.hpp"

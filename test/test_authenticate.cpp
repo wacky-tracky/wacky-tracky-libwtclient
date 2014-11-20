@@ -2,7 +2,7 @@
 #include <wtRequest.hpp>
 
 int main() {
-	wtSession session();
-//	wtRequest req = session.reqAuthenticate("unittest", "unittest");
-//	req.go();
+	wtSession* session = new wtSession();
+	wtRequest* req = session->reqAuthenticate("unittest", "unittest");
+	req->go();
 }
