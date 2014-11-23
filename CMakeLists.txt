@@ -19,3 +19,6 @@ target_link_libraries(test_authenticate wtclient)
 
 add_executable(test_greeting test/test_greeting.cpp)
 target_link_libraries(test_greeting wtclient)
+
+add_executable(test_hashPassword test/test_hashPassword.cpp)
+target_link_libraries(test_hashPassword wtclient)

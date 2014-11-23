@@ -12,6 +12,8 @@ class wtSession {
 		wtRequest* reqAuthenticate(std::string username, std::string password);
 };
 
+std::string hashPassword(std::string);
+
 #include "wtRequest.hpp"
 
 #endif
