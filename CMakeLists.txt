@@ -8,7 +8,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY bin)
 add_library(wtclient SHARED src/util.cpp src/wtRequest.cpp src/wtResponse.cpp src/wtSession.cpp)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -pedantic -std=c++11 ")
 
-target_link_libraries(wtclient curl jsoncpp)
+target_link_libraries(wtclient curl jsoncpp ssl)
 
 install(TARGETS wtclient DESTINATION lib)
 
