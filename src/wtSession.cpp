@@ -30,6 +30,6 @@ wtRequest* wtSession::reqAuthenticate(std::string username, std::string password
 	return req;
 }
 
-void wtSession::registerCookie(std::string value) {
+void wtSession::registerCookie(std::string key, std::string value) {
 
 }
