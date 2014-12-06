@@ -2,6 +2,10 @@
 #include <cstring>
 #include <sstream>
 
+void wtResponse::saveCookiesInSession() {
+	this->session->registerCookie("sessionId", "0");
+}
+
 std::string wtResponse::connName() {
 	std::stringstream ss;
 	ss << "conn " << this->connIndex << " ";

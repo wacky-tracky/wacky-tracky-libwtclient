@@ -10,6 +10,9 @@ class wtSession {
 		std::string getHost();
 
 		wtRequest* reqAuthenticate(std::string username, std::string password);
+
+	private:
+		std::map<std::string, std::string> cookieJar;
 };
 
 #include "wtRequest.hpp"

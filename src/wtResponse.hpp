@@ -18,6 +18,8 @@ class wtResponse {
 		std::string getContent();
 		Json::Value getContentAsJson();
 		std::string getContentAsPrettyJson();
+
+		void saveCookiesInSession();
 	private:
 		std::string connName();
 		void perform();

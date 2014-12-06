@@ -15,3 +15,7 @@ wtRequest* wtSession::reqAuthenticate(std::string username, std::string password
 
 	return req;
 }
+
+void wtSession::registerCookie(std::string value) {
+
+}
