@@ -1,2 +1,7 @@
 bin
 *swp
+**/CMakeFiles
+**/CMakeCache.txt
+**/*.cmake
+**/Makefile
+install_manifest.txt

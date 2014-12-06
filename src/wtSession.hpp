@@ -15,6 +15,8 @@ class wtSession {
 		std::map<std::string, std::string> cookieJar;
 };
 
+std::string hashPassword(std::string);
+
 #include "wtRequest.hpp"
 
 #endif

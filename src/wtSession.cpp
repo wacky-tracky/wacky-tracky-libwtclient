@@ -1,11 +1,25 @@
 #include "wtSession.hpp"
+#include <cstring>
+#include <openssl/sha.h>
+#include <sstream>
 
 std::string wtSession::getHost() {
 	return "hosted.wacky-tracky.com";
 }
 
 std::string hashPassword(std::string password) {
-	return "94e060874450b5ea724bb6ce5ca7be4f6a73416b"; // sha1 for "unittest"
+	const char* ibuf = password.c_str(); 
+	unsigned char hash[20];
+	
+	SHA1((const unsigned char*)ibuf, strlen(ibuf), hash);
+
+	std::stringstream ss; 
+
+	for (int i = 0; i < 20; i++) {
+		ss << std::hex << (int) hash[i];
+	}
+	
+	return ss.str();
 }
 
 wtRequest* wtSession::reqAuthenticate(std::string username, std::string password) {
